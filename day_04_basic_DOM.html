@@ -1,0 +1,60 @@
+<!-- video 31 
+///DOM manipulation(document object model)
+//Dom matlab page kis model se bana hai.////kya structure hai. ye sab samajh aata hai aur tab haum usme manipulation bhi
+kar paate hain..html bhi objects se hi to banta hai.jaose ki head ,bodyh ,meta etc.
+kisi bhi live page me console.me console.log(window.document ) agar karte hain to window object ka document object mil
+jaeaga.ye document object model me hai.-->
+<!DOCTYPE html> <!--batata hai ki ye page html type ka document hai.-->
+<html lang="en"> <!--yahan se html start hota hain.isko hum diagram se samjhate hai.-->
+  
+<head>
+    <meta charset="UTF-8">
+
+    <title>DOM learning</title>
+    <style>
+        .bg-black {
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body id="title" class="bg-black">
+    <div>
+        <h1 class="heading">DOM learning chai aur code</h1>
+        <p>Lorem ipsum dolor sit amet. </p>
+    </div>
+    <div class="Parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+   const parent= document.querySelector('.Parent')
+   console.log(parent) ;  //gives everything under parent.
+   console.log(parent.children);// gives HTMLCollection of everything under parent(which is like array)  
+   console.log(parent.children[1].innerHTml);//prints 2nd child and also its content.
+
+   for(let i=0;i<parent.children.length;i++)
+   {
+      console.log(parent[i].innerHTML);//this classic for loop works here.this will print the content of children.
+   }
+   parent.children[1].style.color="orange"//changes color of 2nd child.
+   console.log(parent.firstElementChild)//this gives first child.
+   console.log(parent.lastElementChild);//gives last child.
+
+   const dayOne=document.querySelector('.day')//it print day one as it is not querySelectorAll.
+   console.log(dayOne); //querySelector is costly operation.it trverses whole dom tree.it not good practice to use it everyother time.
+   console.log(dayOne.parentElement); //this gives imediate parent of 1st child.     
+   console.log(dayOne.nextElementSibling);//gives tuesday.
+   console.log("Nodes:",parent.childNodes);//ye ek nodelist daga jisme days nhi honge,pura ka pura tree structure hoga.usme line break bhi node elements shail hote hain.yahan par kul mila kar 9 node elements honge. 4 days aur 5 line breaks.
+    
+
+</script>
+</html>
+
+
+
+

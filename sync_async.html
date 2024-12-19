@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+ <h1>chai aur code</h1>
+ <button id ="stop">stop</button>
+
+</body>
+<script>
+ //setTomeout ek function hai par ye browser ke through milta hai.aur api se execute hota hai.clearTimeout,clearTimeInterval bhi usi k part hote hain.
+ setTimeout(function(){
+    console.log("ashu");
+ },2000)//2000 means 2 second.2 sec baad ye print higa.
+const sayashu=function(){
+    console.log("ashu");
+ }
+ setTimeout(sayAshu,2000);//takes the above function and does the same thing.
+
+const changetext=function(){
+    document.querySelector('h1').innerHTML="best js series"
+}
+setTimeout(changetext,3000);//3 sec baad innerHTML likh h1 me likh dega.
+
+const changeMe=setTimeout(changetext,2000);// ek refernece bana rhe hain.
+
+document.querySelector('#stop').addEventListener('click',function(){//stop pe click karne se setimout wala event stop ho jaega.
+    clearTimeout(changeMe)//clear timeout karne se call stack me jitne bhi is event ke calls hote hain ,vo sare flush ho jate hain.
+    console.log("STOPPED")
+})
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom manipulation sikh rhe hain.</title>
+</head>
+<body style="background-color: #000;color:#fff">
+    <ul class="language">
+        <li>javascript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(language){
+        const li=document.createElement('li');
+        li.innerHTML=`${language}`
+        document.querySelector('.language').
+        appendChild(li)
+
+    }//this function 
+    addLanguage("python")//this will add python to list.
+    addLanguage("typescript")
+
+    function addoptilang(langname){//this optimised .here we dont need to traeerse the gtree.whereas in former we did.
+        const li =document.createElement('li')
+        li.appendChild(document.createTextNode(langname))
+        document.querySelector('.language').appendChild(li)
+
+    }
+    addoptiLanguage('golang')
+
+
+    ////EDIT
+    const seclang=document.querySelector("li:nth-child(2)")
+    //seclang.innerHTMl="MOJO"
+    document.createElement('li')
+    newli.textContent="mojo"
+    seclang.replaceWith(newli)
+
+  //remove
+  const lastLang=document.querySelector('li:last-child')
+  lastLang.remove()
+   
+
+
+</script>
+</html> 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chai aur code</title>
+</head>
+
+<body>
+  <h1>chai aue javascript</h1>
+  <button id="start">start</button>
+  <button id="stop">stop</button>
+</body>
+<script>
+    const sayDate=function(str){
+        console.log(str,Date.now());
+    }
+    const intervalId=setInterval(sayDate,1000,"hi")
+
+    clearInterval(intervalId);//i sec ke interval pe print ho rhe date ko band kar dega.ye actually me js engine ke call stack me pade sare previous calls ko flush kar deta hai.
+
+
+    //is pproject complete karo,basically functio likha na hai jisse start pe click karne se printing shuru ho jaye aur stop pe click karne se band ho hjaye,.
+
+</script>
+
+
+
+</html>

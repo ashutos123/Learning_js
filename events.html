@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body>
+    
+</body>
+<script>
+  //type.timestamp,defaultPrevented(prevents default submission of say while u r filling form.)
+  //target,toElement,srcElement,currentTarget,
+  //clientX,clientY,scrrenX,screenY
+  //altkey,ctrlkey,shiftkey,keyCode
+  
+  
+
+//onclick events.
+//first way
+document.getElementId('owl').onclick=function(){
+    
+    alert("owl clicked")
+}
+
+//2nd way
+document.getElementById('owl').addEventListener('click',function(e){
+    console.log(e);
+    //alert("owl clicked again")
+
+},false)
+
+//event propagation.(event bubbling,event capturing.)
+document.getEleentById('images').addEventListener('click',function(e){
+   // e.stopPropagation()//ye buublle ko uper jane se roke ga.
+    console.log("clicked inside the ul ");
+},false)//isme click se sirf ul me click hoga.par owl par click karne se pehle owl clicked hoga fir clicked inside image hoga.this is called bubbling up .nochese uper  ki our jata hai.
+//other one is capturing up,yani pehle uper wala click hoga fir niv=che wala.false k jagah par true kr do ho juaega(function k andar.)
+
+document.getElementById('google').addEventListener('click',function(e){
+    e.preventDefault();//ye default actions ko prevent.
+    e.stopPropagation();//bubblle up nhi hone dega.
+    console.log("google clicked")
+
+},false);
+
+////image par click karne se image remove ho jaye.
+document.querySelector('#images').addEventListener('click',function(e){
+    console.log(e.target.tagName);
+    if(e.target.tagName==='IMG'){//ye check karega ki click li par ho rahi hai ya  im age par.image par hogi to image remove ho jaegi,li par hogi to n hogi.
+        console.log(e.target.id);
+        let removeIt =e.target.parentNode
+        removeIt.remove();
+    }
+
+    let removeIt=e.target.parentNode//ye target li ka parentnode ul dega.
+    removeIt.remove()
+})
+//removeIt.parentNode.removeChild(removeIt);//ye parentNode ul ,aur ul apni child ko remove kat dega. 
+ 
+
+</script>
+
+
+</html>
